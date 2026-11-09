@@ -64,7 +64,7 @@ var showNotes = chapters.length > 0
         <% if (p.date) { %><span class="podcast-sub-item"><i>发布</i> <%= podcastDateText(p.date) %></span><% } %>
       </div>
     </div>
-    <% if (showNotes) { %><button type="button" class="podcast-chapters-toggle" data-open>章节</button><% } %>
+    <% if (showNotes) { %><button type="button" class="podcast-chapters-toggle" data-open aria-expanded="false">章节 · <%= chapters.length %></button><% } %>
   </div>
 
   <div class="podcast-playrow">
@@ -92,7 +92,7 @@ var showNotes = chapters.length > 0
   </div>
 
   <% if (showNotes) { %>
-  <div class="podcast-notes">
+  <div class="podcast-notes collapsed">
     <div class="podcast-notes-title">章节速览（点击可跳转播放）</div>
     <div class="podcast-notes-list">
       <% chapters.forEach(function(c, i){ var s = podcastSeek(c.time) %>

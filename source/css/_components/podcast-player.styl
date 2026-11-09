@@ -145,15 +145,16 @@
     position: absolute
     top: 50%
     transform: translate(-50%, -50%)
-    width: 11px
-    height: 11px
-    border-radius: 50%
-    background: var(--card)
-    border: 2px solid var(--theme)
+    width: 2px
+    height: 12px
+    border-radius: 1px
+    background: var(--theme)
+    opacity: .4
     z-index: 2
     cursor: pointer
     &:hover
-      background: var(--theme)
+      opacity: 1
+      height: 14px
 
   .podcast-times
     display: flex

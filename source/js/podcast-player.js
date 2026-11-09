@@ -120,13 +120,17 @@
       });
     });
 
-    // 「章节」按钮：收起 / 展开 Show Notes
+    // 「章节」按钮：收起 / 展开 Show Notes（默认折叠，只显示条数）
     if (toggleBtn && notesBox) {
-      toggleBtn.setAttribute('aria-expanded', 'true');
+      var chapterCount = notes.length;
+      var baseLabel = '章节 · ' + chapterCount;
+      var isCollapsed = notesBox.classList.contains('collapsed');
+      toggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+      toggleBtn.textContent = isCollapsed ? baseLabel : '收起章节';
       toggleBtn.addEventListener('click', function () {
         var collapsed = notesBox.classList.toggle('collapsed');
         toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-        toggleBtn.textContent = collapsed ? '展开章节' : '收起章节';
+        toggleBtn.textContent = collapsed ? baseLabel : '收起章节';
       });
     }
 
